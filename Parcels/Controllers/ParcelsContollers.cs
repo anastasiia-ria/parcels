@@ -1,29 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
-using CarDealership.Models;
-using System.Collections.Generic;
+using Parcels.Models;
+// using System.Collections.Generic;
 
 namespace Parcels.Controllers
 {
-  public class CarsController : Controller
+  public class ParcelsController : Controller
   {
 
-    [HttpGet("/cars")]
-    public ActionResult Index()
-    {
-      List<Car> myGarage = Car.GetAll();
-      return View(myGarage);
-    }
+    // [HttpGet("/parcels")]
+    // public ActionResult Index()
+    // {
+    //   List<Parcel> myGarage = Parcel.GetAll();
+    //   return View(myGarage);
+    // }
 
-    [HttpGet("/cars/new")]
+    [HttpGet("/parcels/new")]
     public ActionResult CreateForm()
     {
       return View();
     }
 
-    [HttpPost("/cars")]
-    public ActionResult Create(string makeModel, int price, int miles)
+    [HttpPost("/parcels")]
+    public ActionResult Create(int width, int length, int height, int weight)
     {
-      Car myCar = new Car(makeModel, price, miles);
+      Parcel myParcel = new Parcel(width, length, height, weight);
       return RedirectToAction("Index");
     }
   }
