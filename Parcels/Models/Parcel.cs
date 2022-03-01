@@ -1,27 +1,28 @@
-using System.Collections.Generic;
+// using System.Collections.Generic;
 
 namespace Parcels.Models
 {
 
-  public class Car
+  public class Parcel
   {
-    public string MakeModel { get; set; }
-    public int Price { get; set; }
-    public int Miles { get; set; }
+    public int Width { get; set; }
+    public int Length { get; set; }
+    public int Height { get; set; }
+    public int Weight { get; set; }
+    // private static List<Parcel> _instances = new List<Parcel> { };
 
-    private static List<Car> _instances = new List<Car> { };
-
-    public Car(string makeModel, int price, int miles)
+    public Parcel(int width, int length, int height, int weight)
     {
-      MakeModel = makeModel;
-      Price = price;
-      Miles = miles;
-      _instances.Add(this);
+      Width = width;
+      Length = length;
+      Height = height;
+      Weight = weight;
+      // _instances.Add(this);
     }
 
-    public static List<Car> GetAll()
-    {
-      return _instances;
-    }
+    // public static List<Parcel> GetAll()
+    // {
+    //   return _instances;
+    // }
   }
 }
