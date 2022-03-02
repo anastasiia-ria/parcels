@@ -24,7 +24,7 @@ namespace Parcels.Controllers
     public ActionResult Create(int width, int length, int height, int weight)
     {
       Parcel myParcel = new Parcel(width, length, height, weight);
-      return RedirectToAction("Index");
+      return View("Index");
     }
   }
 }

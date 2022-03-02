@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Add a car</title>
+    <title>Parcel's Cost</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body>
-    @using CarDealership.Models;
-    <h1>Cars</h1>
+    @using Parcels.Models;
+    <h1>Cost</h1>
     @if (Model.Count == 0)
     {
       <p>There are no items in the list.</p>
     }
     <ul>
-      @foreach (Car car in Model)
-      {
-      <li>Make and Model: @car.MakeModel</li>
-      <li>Price: @car.Price</li>
-      <li>Miles: @car.Miles</li>
-      }
+      <li>Width: @Model.Width</li>
+      <li>Length: @Model.Length</li>
+      <li>Height: @Model.Height</li>
+      
+      <li>Weight: @Model.Weight</li>
+
+      <li>Volume: @Model.GetVolume(@Model.Width, @Model.Length, @Model.Height)</li>
+      <li>Cost: @Model.CostToShip(@Model.Weight * @Model.Volume)</li>
     </ul>
-    <a href="/cars/new">Add a new item.</a>
+    <a href="/parcels">Add a new parcel.</a>
   </body>
 </html>
